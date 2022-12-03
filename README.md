@@ -172,3 +172,5 @@ sbt-plugin-repo: https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases, [organ
 
 到这我们的基本环境搭建完毕
 
+更多教程参考：https://juejin.cn/column/7172800253001728013
+
