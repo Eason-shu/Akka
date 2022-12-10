@@ -6,9 +6,14 @@ import akka.japi.pf.ReceiveBuilder;
 import pojo.GetRequest;
 import pojo.KeyNotFoundException;
 import pojo.SetRequest;
+import scala.PartialFunction;
+import scala.concurrent.duration.Duration;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @description:
@@ -74,13 +79,17 @@ public class RequestActor extends AbstractActor {
         // Create an Akka system
         ActorSystem system = ActorSystem.create("akkademy");
 
+
+
         // Create an actor
         ActorRef ref = system.actorOf(Props.create(RequestActor.class), "akkademy-db");
+        
 
         System.out.println(ref);
 
     }
 
-
-
 }
+
+
+
