@@ -1,8 +1,12 @@
 package com.shu.meter;
 
 import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
+import akka.actor.Props;
 import akka.actor.Status;
 import akka.japi.pf.ReceiveBuilder;
+import akka.routing.RoundRobinGroup;
+import akka.routing.RoundRobinPool;
 import pojo.Meter;
 import pojo.MeterRequest;
 
@@ -13,6 +17,15 @@ import pojo.MeterRequest;
  * @version: 1.0
  */
 public class MeterDemoActor extends AbstractActor {
+
+    // 创建路由方式一
+    ActorRef workerRouter = context().actorOf(Props.create(MeterDemoActor.class).withRouter(new RoundRobinPool(8)));
+
+    // 创建方式二
+    //ActorRef router = context().actorOf(new RoundRobinGroup(actors.map(actor -> actor.path()).props());
+
+
+
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()

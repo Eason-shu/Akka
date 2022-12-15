@@ -17,6 +17,10 @@ public class Meter implements Serializable {
         this.name = name;
     }
 
+    public Meter() {
+
+    }
+
     public String getId() {
         return id;
     }
